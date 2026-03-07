@@ -3,353 +3,457 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VICTONNEL · deployment</title>
-    <!-- Font Awesome 6 (free) for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>VICTONNEL DEPLOYMENT · Google-like</title>
+    <!-- Google Font: Roboto (used by Google) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Material Icons (official Google icons) -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            background: #0c0f14;
+            background-color: #f1f3f4; /* Google background gray */
+            font-family: 'Roboto', Arial, Helvetica, sans-serif;
+            padding: 24px;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1.5rem;
+            color: #3c4043;
         }
 
-        .card {
-            max-width: 800px;
+        /* main card — now with Google-like whitespace, shadows, rounded corners */
+        .google-card {
+            max-width: 920px;
             width: 100%;
-            background: #14181f;
-            border-radius: 32px;
-            padding: 2rem 2rem 2.2rem;
-            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(75, 130, 200, 0.15) inset;
-            border: 1px solid #2a313c;
+            background-color: white;
+            border-radius: 24px;
+            box-shadow: 0 1px 3px 0 rgba(60,64,67,0.08), 0 4px 8px 3px rgba(60,64,67,0.16);
+            padding: 32px 32px 36px;
+            transition: 0.2s;
         }
 
-        /* header / title */
-        .deploy-header {
+        /* header: "VICTONNEL_DEPLOYMENT" like a Google product name */
+        .product-header {
             display: flex;
-            align-items: baseline;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
+            align-items: center;
+            margin-bottom: 32px;
         }
 
-        .deploy-header h1 {
-            font-size: 2rem;
-            font-weight: 700;
+        .product-header h1 {
+            font-weight: 500;
+            font-size: 2.2rem;
             letter-spacing: -0.5px;
-            background: linear-gradient(135deg, #b3d0ff, #7aa5ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 2px 5px rgba(25, 100, 255, 0.2);
+            color: #202124;
+            margin-right: 16px;
         }
 
-        .deploy-header .version-tag {
-            background: #202731;
-            color: #8da1c0;
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 0.2rem 0.8rem;
-            border-radius: 40px;
-            border: 1px solid #314153;
-            margin-left: 0.75rem;
-            text-transform: uppercase;
+        .product-badge {
+            background-color: #e8f0fe;
+            color: #1a73e8;
+            border-radius: 32px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 4px 12px;
+            border: 1px solid #d2e3fc;
+            text-transform: lowercase;
         }
 
-        /* stats grid (cpu, memory, disk) */
-        .stats-grid {
+        /* metrics row — Google-style "chips" or cards */
+        .metrics-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.5rem 2.5rem;
-            background: #10141b;
-            border-radius: 28px;
-            padding: 1.6rem 2rem;
-            border: 1px solid #262e3a;
-            margin-bottom: 2rem;
+            gap: 24px;
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 22px 28px;
+            margin-bottom: 32px;
+            border: 1px solid #ecedee;
         }
 
-        .stat-item {
+        .metric {
             display: flex;
             flex-direction: column;
         }
 
-        .stat-label {
-            font-size: 0.85rem;
+        .metric-label {
+            font-size: 0.8rem;
+            font-weight: 500;
             text-transform: uppercase;
+            color: #5f6368;
             letter-spacing: 0.5px;
-            font-weight: 600;
-            color: #6f7d98;
         }
 
-        .stat-value {
-            font-size: 2rem;
-            font-weight: 600;
-            color: #e5ecfb;
+        .metric-number {
+            font-size: 2.4rem;
+            font-weight: 500;
+            color: #202124;
             line-height: 1.2;
         }
 
-        .stat-unit {
-            font-size: 1rem;
+        .metric-unit {
+            font-size: 1.1rem;
             font-weight: 400;
-            color: #7c8aa5;
+            color: #5f6368;
             margin-left: 4px;
         }
 
-        .stat-detail {
-            font-size: 0.95rem;
-            color: #9aabca;
+        .metric-extra {
+            font-size: 0.9rem;
+            color: #5f6368;
             margin-top: 4px;
         }
 
-        /* system information rows */
-        .sysinfo-panel {
-            background: #10141b;
-            border-radius: 24px;
-            padding: 1.4rem 2rem;
-            border: 1px solid #262e3a;
-            margin-bottom: 2.2rem;
+        /* system information block — Google material card style */
+        .sys-section {
+            background-color: #ffffff;
+            border: 1px solid #ecedee;
+            border-radius: 20px;
+            padding: 16px 24px;
+            margin-bottom: 32px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
         }
 
-        .info-row {
+        .sys-grid {
             display: flex;
-            align-items: baseline;
-            justify-content: space-between;
-            padding: 0.4rem 0;
-            border-bottom: 1px dashed #28303e;
+            flex-wrap: wrap;
+            gap: 16px 32px;
         }
 
-        .info-row:last-child {
-            border-bottom: none;
-        }
-
-        .info-label {
-            font-weight: 500;
-            color: #8192b2;
-            font-size: 0.95rem;
-            letter-spacing: 0.2px;
-        }
-
-        .info-value {
-            font-weight: 600;
-            color: #dee9ff;
-            background: #1d232d;
-            padding: 0.2rem 1rem;
-            border-radius: 40px;
-            font-size: 0.95rem;
-            border: 1px solid #31445a;
-        }
-
-        /* middle title (bots & services) */
-        .section-title {
+        .sys-item {
+            flex: 1 1 200px;
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 1.5rem;
+            gap: 16px;
+            padding: 8px 0;
         }
 
-        .section-title h2 {
-            color: #f0f4ff;
-            font-size: 1.5rem;
-            font-weight: 600;
-            letter-spacing: -0.3px;
+        .sys-icon .material-icons {
+            font-size: 1.6rem;
+            color: #5f6368;
         }
 
-        .section-title .badge {
-            background: #2255a9;
-            color: white;
-            padding: 0.25rem 1rem;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            border: 1px solid #3f7ad0;
-        }
-
-        /* bot cards */
-        .bot-cards {
+        .sys-detail {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-            margin-bottom: 2.5rem;
         }
 
-        .bot-item {
-            background: #10161f;
-            border-radius: 24px;
-            padding: 1.2rem 1.8rem;
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem 2rem;
-            border: 1px solid #293241;
-            box-shadow: 0 6px 0 #0b0f14;
-            transition: all 0.1s ease;
-        }
-
-        .bot-item:hover {
-            border-color: #405c7a;
-            background: #121a25;
-        }
-
-        .bot-name {
-            font-size: 1.5rem;
-            font-weight: 650;
-            color: #d6e4ff;
-            letter-spacing: -0.3px;
-            min-width: 140px;
-        }
-
-        .bot-icon i {
-            font-size: 2rem;
-            color: #5f8ad4;
-        }
-
-        .bot-repo {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: #1b2330;
-            padding: 0.4rem 1.2rem;
-            border-radius: 40px;
-            border: 1px solid #314a66;
-            font-size: 1rem;
-            color: #bfd1f0;
-        }
-
-        .bot-repo i {
-            color: #f0c674;
-        }
-
-        .docker-tag {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            background: #1a2533;
-            padding: 0.4rem 1.2rem;
-            border-radius: 30px;
-            font-size: 0.95rem;
-            border: 1px solid #375175;
-            color: #bdd3ff;
-            margin-left: auto;
-        }
-
-        .docker-tag i {
-            font-size: 1.2rem;
-            color: #2496ed;
-        }
-
-        .time-badge {
-            color: #94b5e0;
-            font-size: 0.9rem;
-            background: #1d2a39;
-            padding: 0.3rem 1rem;
-            border-radius: 30px;
-            border: 1px solid #38506b;
-            white-space: nowrap;
-        }
-
-        /* new deployment button */
-        .new-deployment {
-            display: flex;
-            justify-content: center;
-            margin-top: 1rem;
-        }
-
-        .deploy-btn {
-            background: linear-gradient(135deg, #1d2b3f, #0f1a2b);
-            border: 1.5px solid #3a5e8b;
-            color: #b7d3ff;
-            padding: 1rem 2.8rem;
-            border-radius: 60px;
-            font-size: 1.4rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            cursor: default;
-            box-shadow: 0 10px 18px -8px #030405;
-            transition: 0.15s;
+        .sys-detail .label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #5f6368;
             text-transform: uppercase;
         }
 
-        .deploy-btn i {
-            color: #7bb2ff;
+        .sys-detail .value {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #202124;
+            background: #f1f3f4;
+            padding: 4px 12px;
+            border-radius: 40px;
+            display: inline-block;
+            margin-top: 4px;
+            border: 1px solid transparent;
+        }
+
+        /* title for bot section — Google style */
+        .action-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .action-header h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #202124;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .chip-count {
+            background-color: #e8eaed;
+            border-radius: 40px;
+            padding: 4px 14px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #3c4043;
+        }
+
+        /* bot cards — like Google Drive / admin list items */
+        .bot-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .bot-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 16px 24px;
+            background-color: #ffffff;
+            border: 1px solid #ecedee;
+            border-radius: 28px;
+            padding: 16px 24px;
+            transition: background 0.1s;
+        }
+
+        .bot-row:hover {
+            background-color: #f8f9fa;
+            border-color: #dadce0;
+        }
+
+        .bot-icon-group {
+            display: flex;
+            gap: 4px;
+        }
+        .bot-icon-group .material-icons {
+            font-size: 2rem;
+            color: #5f6368;
+        }
+        .whatsapp { color: #25D366; }    /* whatsapp green */
+        .discord { color: #5865F2; }      /* discord blurple */
+
+        .bot-name {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #202124;
+            min-width: 100px;
+        }
+
+        .repo-folder {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #f1f3f4;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            color: #3c4043;
+            border: 1px solid #dadce0;
+        }
+
+        .repo-folder .material-icons {
+            font-size: 1.2rem;
+            color: #5f6368;
+        }
+
+        .docker-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #f1f3f4;
+            padding: 8px 20px;
+            border-radius: 40px;
+            border: 1px solid #dadce0;
+            color: #3c4043;
+            font-weight: 400;
+        }
+
+        .docker-indicator .material-icons {
+            color: #0b57d0;   /* google blue / docker hint */
+        }
+
+        .time-ago {
+            color: #5f6368;
+            background: #f1f3f4;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            margin-left: auto;
+            border: 1px solid #dadce0;
+            white-space: nowrap;
+        }
+
+        /* New deployment button — Google Filled button style */
+        .new-deployment-wrap {
+            display: flex;
+            justify-content: center;
+            margin-top: 16px;
+        }
+
+        .google-button {
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 48px;
+            padding: 16px 48px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 1px 3px 0 rgba(26,115,232,0.3);
+            transition: background-color 0.16s, box-shadow 0.2s;
+            cursor: default; /* static demo */
+        }
+
+        .google-button .material-icons {
             font-size: 1.6rem;
         }
 
-        .deploy-btn:hover {
-            background: linear-gradient(135deg, #253a55, #142235);
-            color: #e3efff;
-            border-color: #5b8ad0;
+        .google-button:hover {
+            background-color: #0b57d0;
+            box-shadow: 0 3px 8px 0 rgba(26,115,232,0.4);
         }
 
-        /* small adjustments */
-        .stat-value .small-mem {
-            font-size: 1.6rem;
-        }
-
+        /* fine tune */
         .separator-dot {
-            color: #38506b;
+            color: #dadce0;
             margin: 0 4px;
         }
-
-        .ip-format {
-            font-family: 'SF Mono', 'Fira Code', monospace;
+        .mono {
+            font-family: 'Roboto Mono', monospace;
+            letter-spacing: -0.2px;
+        }
+        .footer-credit {
+            text-align: center;
+            color: #5f6368;
+            font-size: 0.8rem;
+            margin-top: 32px;
+            border-top: 1px solid #ecedee;
+            padding-top: 20px;
         }
 
-        /* responsive */
-        @media (max-width: 650px) {
-            .card { padding: 1.5rem; }
-            .stats-grid { flex-direction: column; gap: 1rem; }
-            .bot-item { flex-direction: column; align-items: flex-start; }
-            .docker-tag { margin-left: 0; }
+        /* make it fit nicely on smaller screens */
+        @media (max-width: 750px) {
+            .bot-row { flex-direction: column; align-items: flex-start; }
+            .time-ago { margin-left: 0; }
+            .metrics-row { flex-direction: column; gap: 16px; }
         }
     </style>
 </head>
 <body>
-    <div class="card">
-        <!-- main title: VICTONNEL_DEPLOYMENT -->
-        <div class="deploy-header">
+    <div class="google-card">
+        <!-- header VICTONNEL_DEPLOYMENT (Google style) -->
+        <div class="product-header">
             <h1>VICTONNEL_DEPLOYMENT</h1>
-            <span class="version-tag">v1.0</span>
+            <span class="product-badge">v1 · beta</span>
         </div>
 
-        <!-- stats: cpu, memory, disk (inspired by given style) -->
-        <div class="stats-grid">
-            <div class="stat-item">
-                <span class="stat-label">SYSTEM CPU</span>
-                <span class="stat-value">2.0<span class="stat-unit">%</span></span>
-                <span class="stat-detail">dual-core</span>
+        <!-- SYSTEM METRICS (clean) -->
+        <div class="metrics-row">
+            <div class="metric">
+                <span class="metric-label">SYSTEM CPU</span>
+                <span class="metric-number">2.0<span class="metric-unit">%</span></span>
+                <span class="metric-extra">active</span>
             </div>
-            <div class="stat-item">
-                <span class="stat-label">MEMORY USAGE</span>
-                <span class="stat-value">1.7<span class="stat-unit">GB</span> <span class="stat-unit" style="font-size:1.6rem;">/ 3.8GB</span></span>
-                <span class="stat-detail">DDR4 · 44% used</span>
+            <div class="metric">
+                <span class="metric-label">MEMORY USAGE</span>
+                <span class="metric-number">1.7<span class="metric-unit">GB</span> <span style="font-size:1.8rem; color:#5f6368;">/</span> 3.8<span class="metric-unit">GB</span></span>
+                <span class="metric-extra">44% used</span>
             </div>
-            <div class="stat-item">
-                <span class="stat-label">DISK SPACE</span>
-                <span class="stat-value">Unlimited</span>
-                <span class="stat-detail">cloud backed</span>
+            <div class="metric">
+                <span class="metric-label">DISK SPACE</span>
+                <span class="metric-number">Unlimited</span>
+                <span class="metric-extra">cloud SSD</span>
             </div>
         </div>
 
-        <!-- system information block (same layout as reference) -->
-        <div class="sysinfo-panel">
-            <div class="info-row">
-                <span class="info-label"><i class="fa-brands fa-node" style="margin-right: 6px;"></i>NODE VERSION</span>
-                <span class="info-value">v28..20..0</span>
+        <!-- SYSTEM INFORMATION (Google-style chips) -->
+        <div class="sys-section">
+            <div class="sys-grid">
+                <div class="sys-item">
+                    <div class="sys-icon"><span class="material-icons">code</span></div>
+                    <div class="sys-detail">
+                        <span class="label">NODE VERSION</span>
+                        <span class="value">v28..20..0</span>
+                    </div>
+                </div>
+                <div class="sys-item">
+                    <div class="sys-icon"><span class="material-icons">computer</span></div>
+                    <div class="sys-detail">
+                        <span class="label">PLATFORM</span>
+                        <span class="value">Linux 6.9.12</span>
+                    </div>
+                </div>
+                <div class="sys-item">
+                    <div class="sys-icon"><span class="material-icons">schedule</span></div>
+                    <div class="sys-detail">
+                        <span class="label">SYSTEM UPTIME</span>
+                        <span class="value">0h 18m</span>
+                    </div>
+                </div>
+                <div class="sys-item">
+                    <div class="sys-icon"><span class="material-icons">settings_ethernet</span></div>
+                    <div class="sys-detail">
+                        <span class="label">SERVER IP</span>
+                        <span class="value mono">169..254..8..1</span>
+                    </div>
+                </div>
             </div>
-            <div class="info-row">
-                <span class="info-label"><i class="fa-brands fa-linux" style="margin-right: 6px;"></i>PLATFORM</span>
-                <span class="info-value">Linux 6.9.12 (x86_64)</span>
+        </div>
+
+        <!-- manage bots header (like Google Tasks / Admin) -->
+        <div class="action-header">
+            <h2>
+                <span class="material-icons" style="color:#1a73e8;">smart_toy</span> 
+                Manage bots & web services
+            </h2>
+            <span class="chip-count">2 deployments</span>
+        </div>
+
+        <!-- bot cards exactly as reference but with Google fit -->
+        <div class="bot-list">
+            <!-- first JUNE-X (whatsapp+discord) -->
+            <div class="bot-row">
+                <div class="bot-icon-group">
+                    <span class="material-icons whatsapp">chat</span>
+                    <span class="material-icons discord">forum</span>
+                </div>
+                <span class="bot-name">JUNE-X</span>
+                <div class="repo-folder">
+                    <span class="material-icons">folder</span> VInpink2/JUNE-X
+                </div>
+                <div class="docker-indicator">
+                    <span class="material-icons">docker</span> Dockerfile 🐳
+                </div>
+                <span class="time-ago">16 minutes ago</span>
+            </div>
+
+            <!-- second JUNE-X (Dockerfiles version) -->
+            <div class="bot-row">
+                <div class="bot-icon-group">
+                    <span class="material-icons discord">forum</span>
+                    <span class="material-icons whatsapp">chat</span>
+                </div>
+                <span class="bot-name">JUNE-X</span>
+                <div class="repo-folder">
+                    <span class="material-icons">folder</span> VInpink2/JUNE-X
+                </div>
+                <div class="docker-indicator">
+                    <span class="material-icons">docker</span> Dockerfiles 🐳
+                </div>
+                <span class="time-ago">3 minutes ago</span>
+            </div>
+        </div>
+
+        <!-- NEW DEPLOYMENT button (Google style) -->
+        <div class="new-deployment-wrap">
+            <div class="google-button">
+                <span class="material-icons">add_circle</span> NEW DEPLOYMENT
+            </div>
+        </div>
+
+        <!-- subtle footer -->
+        <div class="footer-credit">
+            <span class="material-icons" style="font-size: 1rem; vertical-align: middle;">favorite</span> VICTONNEL · Google-like dashboard
+        </div>
+    </div>
+</body>
+</html>4)</span>
             </div>
             <div class="info-row">
                 <span class="info-label"><i class="fa-regular fa-clock" style="margin-right: 6px;"></i>SYSTEM UPTIME</span>
