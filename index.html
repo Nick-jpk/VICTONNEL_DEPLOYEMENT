@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Reese Deployment</title>
+<title>VICTONNEL DEPLOYMENT</title>
 
-<!-- Modern fonts -->
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -23,7 +24,7 @@ box-sizing:border-box;
 }
 
 body{
-background:#0d1117;
+background:#0b0f19;
 font-family:'Inter',sans-serif;
 color:#e6edf3;
 padding:40px;
@@ -35,12 +36,12 @@ padding:40px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-margin-bottom:30px;
+margin-bottom:35px;
 }
 
 .logo{
 font-family:'Poppins',sans-serif;
-font-size:22px;
+font-size:24px;
 font-weight:600;
 }
 
@@ -51,6 +52,7 @@ color:#3b82f6;
 .nav{
 display:flex;
 gap:30px;
+font-size:14px;
 color:#9ca3af;
 }
 
@@ -65,17 +67,19 @@ margin-bottom:25px;
 
 .card{
 background:#111827;
-padding:22px;
+padding:25px;
 border-radius:12px;
+border:1px solid #1f2937;
 }
 
 .card h3{
 font-size:12px;
 color:#9ca3af;
 margin-bottom:8px;
+letter-spacing:1px;
 }
 
-.card .value{
+.value{
 font-size:28px;
 font-weight:600;
 }
@@ -84,8 +88,9 @@ font-weight:600;
 
 .system{
 background:#111827;
-padding:20px;
+padding:22px;
 border-radius:12px;
+border:1px solid #1f2937;
 margin-bottom:30px;
 }
 
@@ -95,11 +100,6 @@ grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
 gap:20px;
 }
 
-.sys-item{
-display:flex;
-flex-direction:column;
-}
-
 .sys-label{
 font-size:11px;
 color:#9ca3af;
@@ -107,7 +107,7 @@ margin-bottom:4px;
 }
 
 .sys-value{
-font-size:14px;
+font-size:15px;
 font-weight:500;
 }
 
@@ -117,7 +117,7 @@ font-weight:500;
 display:flex;
 justify-content:space-between;
 align-items:center;
-margin-bottom:15px;
+margin-bottom:20px;
 }
 
 .section-header h2{
@@ -125,16 +125,32 @@ font-family:'Poppins',sans-serif;
 font-size:18px;
 }
 
+.button{
+background:#2563eb;
+padding:12px 22px;
+border-radius:8px;
+font-weight:600;
+cursor:pointer;
+transition:0.2s;
+}
+
+.button:hover{
+background:#1d4ed8;
+}
+
+/* deployment cards */
+
 .deployments{
 display:flex;
 flex-direction:column;
-gap:12px;
+gap:14px;
 }
 
 .deployment{
 background:#111827;
 padding:18px;
 border-radius:10px;
+border:1px solid #1f2937;
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -143,26 +159,22 @@ align-items:center;
 .repo{
 color:#9ca3af;
 font-size:14px;
+margin-top:3px;
 }
 
 .status{
 color:#22c55e;
 font-size:13px;
-font-weight:500;
-}
-
-/* button */
-
-.button{
-background:#2563eb;
-padding:12px 20px;
-border-radius:8px;
 font-weight:600;
-cursor:pointer;
 }
 
-.button:hover{
-background:#1d4ed8;
+/* footer */
+
+.footer{
+margin-top:40px;
+text-align:center;
+color:#6b7280;
+font-size:13px;
 }
 
 </style>
@@ -173,7 +185,7 @@ background:#1d4ed8;
 <div class="header">
 
 <div class="logo">
-REESE <span>DEPLOYMENT</span>
+VICTONNEL <span>DEPLOYMENT</span>
 </div>
 
 <div class="nav">
@@ -184,7 +196,7 @@ REESE <span>DEPLOYMENT</span>
 </div>
 
 
-<!-- metrics -->
+<!-- Metrics -->
 
 <div class="metrics">
 
@@ -206,28 +218,28 @@ REESE <span>DEPLOYMENT</span>
 </div>
 
 
-<!-- system info -->
+<!-- System Info -->
 
 <div class="system">
 
 <div class="system-grid">
 
-<div class="sys-item">
+<div>
 <div class="sys-label">NODE VERSION</div>
 <div class="sys-value">v20.20.0</div>
 </div>
 
-<div class="sys-item">
+<div>
 <div class="sys-label">PLATFORM</div>
 <div class="sys-value">Linux 6.9.12</div>
 </div>
 
-<div class="sys-item">
+<div>
 <div class="sys-label">SYSTEM UPTIME</div>
 <div class="sys-value">0h 18m</div>
 </div>
 
-<div class="sys-item">
+<div>
 <div class="sys-label">SERVER IP</div>
 <div class="sys-value">169.254.8.1</div>
 </div>
@@ -237,13 +249,15 @@ REESE <span>DEPLOYMENT</span>
 </div>
 
 
-<!-- deployments -->
+<!-- Deployment Section -->
 
 <div class="section-header">
 
-<h2>RESEE DEPLOYMENT</h2>
+<h2>Manage bots & web services</h2>
 
-<div class="button">+ New Deployment</div>
+<div class="button">
++ New Deployment
+</div>
 
 </div>
 
@@ -279,138 +293,12 @@ RUNNING
 </div>
 
 
+<div class="footer">
+VICTONNEL DEPLOYMENT • Hosting Dashboard
+</div>
+
 </body>
-</html>span> <span style="font-size:1.8rem; color:#5f6368;">/</span> 3.8<span class="metric-unit">GB</span></span>
-                <span class="metric-extra">44% used</span>
-            </div>
-            <div class="metric">
-                <span class="metric-label">DISK SPACE</span>
-                <span class="metric-number">Unlimited</span>
-                <span class="metric-extra">cloud SSD</span>
-            </div>
-        </div>
-
-        <!-- SYSTEM INFORMATION (Google-style chips) -->
-        <div class="sys-section">
-            <div class="sys-grid">
-                <div class="sys-item">
-                    <div class="sys-icon"><span class="material-icons">code</span></div>
-                    <div class="sys-detail">
-                        <span class="label">NODE VERSION</span>
-                        <span class="value">v28..20..0</span>
-                    </div>
-                </div>
-                <div class="sys-item">
-                    <div class="sys-icon"><span class="material-icons">computer</span></div>
-                    <div class="sys-detail">
-                        <span class="label">PLATFORM</span>
-                        <span class="value">Linux 6.9.12</span>
-                    </div>
-                </div>
-                <div class="sys-item">
-                    <div class="sys-icon"><span class="material-icons">schedule</span></div>
-                    <div class="sys-detail">
-                        <span class="label">SYSTEM UPTIME</span>
-                        <span class="value">0h 18m</span>
-                    </div>
-                </div>
-                <div class="sys-item">
-                    <div class="sys-icon"><span class="material-icons">settings_ethernet</span></div>
-                    <div class="sys-detail">
-                        <span class="label">SERVER IP</span>
-                        <span class="value mono">169..254..8..1</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- manage bots header (like Google Tasks / Admin) -->
-        <div class="action-header">
-            <h2>
-                <span class="material-icons" style="color:#1a73e8;">smart_toy</span> 
-                Manage bots & web services
-            </h2>
-            <span class="chip-count">2 deployments</span>
-        </div>
-
-        <!-- bot cards exactly as reference but with Google fit -->
-        <div class="bot-list">
-            <!-- first JUNE-X (whatsapp+discord) -->
-            <div class="bot-row">
-                <div class="bot-icon-group">
-                    <span class="material-icons whatsapp">chat</span>
-                    <span class="material-icons discord">forum</span>
-                </div>
-                <span class="bot-name">JUNE-X</span>
-                <div class="repo-folder">
-                    <span class="material-icons">folder</span> VInpink2/JUNE-X
-                </div>
-                <div class="docker-indicator">
-                    <span class="material-icons">docker</span> Dockerfile 🐳
-                </div>
-                <span class="time-ago">16 minutes ago</span>
-            </div>
-
-            <!-- second JUNE-X (Dockerfiles version) -->
-            <div class="bot-row">
-                <div class="bot-icon-group">
-                    <span class="material-icons discord">forum</span>
-                    <span class="material-icons whatsapp">chat</span>
-                </div>
-                <span class="bot-name">JUNE-X</span>
-                <div class="repo-folder">
-                    <span class="material-icons">folder</span> VInpink2/JUNE-X
-                </div>
-                <div class="docker-indicator">
-                    <span class="material-icons">docker</span> Dockerfiles 🐳
-                </div>
-                <span class="time-ago">3 minutes ago</span>
-            </div>
-        </div>
-
-        <!-- NEW DEPLOYMENT button (Google style) -->
-        <div class="new-deployment-wrap">
-            <div class="google-button">
-                <span class="material-icons">add_circle</span> NEW DEPLOYMENT
-            </div>
-        </div>
-
-        <!-- subtle footer -->
-        <div class="footer-credit">
-            <span class="material-icons" style="font-size: 1rem; vertical-align: middle;">favorite</span> VICTONNEL · Google-like dashboard
-        </div>
-    </div>
-</body>
-</html>4)</span>
-            </div>
-            <div class="info-row">
-                <span class="info-label"><i class="fa-regular fa-clock" style="margin-right: 6px;"></i>SYSTEM UPTIME</span>
-                <span class="info-value">0h 18m</span>
-            </div>
-            <div class="info-row">
-                <span class="info-label"><i class="fa-solid fa-network-wired" style="margin-right: 6px;"></i>SERVER IP</span>
-                <span class="info-value ip-format">169..254..8..1</span>
-            </div>
-        </div>
-
-        <!-- manage bots & web services (VICTONNEL style) -->
-        <div class="section-title">
-            <h2>🤖 Manage your bots & web services</h2>
-            <span class="badge">active · 2</span>
-        </div>
-
-        <!-- bot cards – exactly JUNE-X twice with variations to match original but under VICTONNEL -->
-        <div class="bot-cards">
-            <!-- first bot: JUNE-X (WhatsApp/Discord flavour) -->
-            <div class="bot-item">
-                <div class="bot-icon"><i class="fa-brands fa-whatsapp"></i><i class="fa-brands fa-discord" style="margin-left: 6px;"></i></div>
-                <span class="bot-name">JUNE-X</span>
-                <div class="bot-repo"><i class="fa-regular fa-folder"></i> VInpink2/JUNE-X</div>
-                <div class="docker-tag"><i class="fa-brands fa-docker"></i> Dockerfile 🐳 <span class="time-badge" style="background:transparent; border:none; padding:0 0 0 6px;">16 min ago</span></div>
-            </div>
-            <!-- second bot: also JUNE-X but different timestamp (Dockerfiles) exactly as reference -->
-            <div class="bot-item">
-                <div class="bot-icon"><i class="fa-brands fa-discord"></i><i class="fa-brands fa-whatsapp" style="margin-left: 6px;"></i></div>
+</html>/div>
                 <span class="bot-name">JUNE-X</span>
                 <div class="bot-repo"><i class="fa-regular fa-folder"></i> VInpink2/JUNE-X</div>
                 <div class="docker-tag"><i class="fa-brands fa-docker"></i> Dockerfiles 🐳 <span class="time-badge" style="background:transparent; border:none; padding:0 0 0 6px;">3 min ago</span></div>
